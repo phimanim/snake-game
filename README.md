@@ -1,4 +1,4 @@
-# snake-game
+# Snake game
 
 ## Description
 ​
@@ -73,13 +73,13 @@ Snake is a game where a snake moves in a grid area where a treat appear. Each ti
 ## Links
 ​
 ### Notion
-[Link url](https://www.notion.so/c7900e4b862d49ee9e4a24a81b515225?v=f81cdc3193c24cf0b236a3c341246020)
+[Notion tasks](https://beautiful-pump-06b.notion.site/c7900e4b862d49ee9e4a24a81b515225?v=f81cdc3193c24cf0b236a3c341246020)
 ​
 ### Git
 URls for the project repo and deploy
-[Link Repo](https://github.com/phimanim/snake-game.git)
-[Link Deploy]()
+[Repo](https://github.com/phimanim/snake-game.git)
+[Deploy]()
 ​
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com]()
+[Slides]()
