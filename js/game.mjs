@@ -23,7 +23,7 @@ startLoop(){
         this.drawCanvas();
         this.snake.draw();
         this.treat.draw();
-        this.snake.update();
+        this.snake.moveSnake();
         //this.treat.randomLocation();
         // problem : assign a new location really quick
         
