@@ -8,42 +8,65 @@ class Snake {
     this.y = 0;
     this.positions = [];
     this.size = 10;
-    this.direction = 'right';
+    this.direction = 'ArrowRight';
+    this.isGameOver = false;
   }
 
   createNewPosition() {
     switch (this.direction) {
-      case 'right':
-        return {
-          x: this.x + this.size / 2,
-          y: this.y
-        };
-      case 'down':
+      case 'ArrowRight':
+        this.x = this.x + this.size;
+        this.y = this.y;
         return {
           x: this.x,
-          y: this.y + this.size / 2
+          y: this.y,
         };
-      case 'left':
-        return {
-          x: this.x - this.size / 2,
-          y: this.y
-        };
-      case 'up':
+      case 'ArrowDown':
+        this.x = this.x;
+        this.y = this.y + this.size;
         return {
           x: this.x,
-          y: this.y - this.size / 2
+          y: this.y,
         };
+      case "ArrowLeft":
+        this.x = this.x - this.size;
+        this.y = this.y;
+          return {
+            x: this.x,
+            y: this.y,
+          };
+      case "ArrowUp":
+        this.x = this.x;
+        this.y = this.y - this.size;
+          return {
+            x: this.x,
+            y: this.y - this.size,
+          };
     }
   }
 
+  wrongMovement(eventCode) {
+    if (eventCode === "ArrowUp" && this.direction === "ArrowDown") {
+      return true;
+    }
+    if (eventCode === "ArrowDown" && this.direction === "ArrowUp") {
+      return true;
+    }
+    if (eventCode === "ArrowLeft" && this.direction === "ArrowRight") {
+      return true;
+    }
+
+    if (eventCode === "ArrowRight" && this.direction === "ArrowLeft") {
+      return true;
+    }
+  }
   updatePositions() {
     this.positions = [...this.positions.slice(1), this.createNewPosition()];
   }
 
-  //update(){
-    //this.x = this.x + this.size;
-    //this.y = this.y + this.size;
-  //}
+  setDirection(direction) {
+    this.direction = direction;
+  }
 
   draw() {
     this.ctx.fillStyle = "white";
@@ -53,39 +76,13 @@ class Snake {
   }
 
 
-  
-  moveSnake(){
-    let x = this.positions[0].x
-    let y = this.positions[0].y
-
-  switch (this.direction) {
-    case "down":
-      y = 700 % (y + 10)
-      break
-    case "up":
-      y = 700 % (y - 10)
-      break
-  
-    case "left":
-      x = 700 % (x - 10)
-      break
-    case "right":
-      x = 700 % (x + 10)
-      break
-  }
-  const newSnake = [{ x, y}]
-  const snakeLength = this.positions.length
-  for (let i = 1; i < snakeLength; ++i) {
-    newSnake.push({ ...this.positions[i - 1] })
-  }
-  this.positions = newSnake
-  }
-  
-  /*checkScreen() {
-     
+  checkScreen() {
+    if (this.x >= this.canvas.width || this.x < 0 || this.y < 0 || this.y >= this.canvas.height ) {
+      this.isGameOver = true;   
+    }
   }
 
-  eatTreat() {
+  /*eatTreat() {
 
   }*/
 }

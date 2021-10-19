@@ -9,32 +9,28 @@ class Game {
     this.tile = 10;
     this.snake;
     this.treat;
-    this.isGameOver = false;
+    this.invervalId = null;
     }
 
-startLoop(){
+
+startLoop() {
     this.snake = new Snake(this.canvas);
     this.treat = new Treat(this.canvas);
-    /*this.treat.randomLocation();*/
 
-    const loop = () => {
-        this.snake.updatePositions();
-        this.clearCanvas()
-        this.drawCanvas();
-        this.snake.draw();
-        this.treat.draw();
-        this.snake.moveSnake();
-        //this.treat.randomLocation();
-        // problem : assign a new location really quick
-        
 
-        if (!this.isGameOver) {
-          window.requestAnimationFrame(loop);
-        }
-      };
-  
-      window.requestAnimationFrame(loop);
-}
+    this.invervalId = setInterval(() => {
+      this.clearCanvas();
+      this.drawCanvas();
+      this.snake.draw();
+      this.treat.draw();
+      this.snake.checkScreen();
+      this.snake.updatePositions();
+      if (this.isGameOver) {
+        clearInterval(this.invervalId);
+      }
+    }, 100);
+  }
+
 
 clearCanvas(){
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -42,6 +38,7 @@ clearCanvas(){
 
 
 drawCanvas(){
+    
     this.ctx.fillStyle = "blue";
     this.ctx.fillRect(0,0, canvas.width, canvas.height);
 
