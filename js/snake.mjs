@@ -7,7 +7,7 @@ class Snake {
     this.x = 10;
     this.y = 10;
     this.positions = [];
-    this.size = 20;
+    this.size = 10;
     this.direction = 'right';
   }
 
@@ -40,13 +40,19 @@ class Snake {
     this.positions = [...this.positions.slice(1), this.createNewPosition()];
   }
 
+  update(){
+    this.x = this.x + this.size;
+    this.y = this.y + this.size;
+  }
+
   draw() {
+    this.ctx.fillStyle = "white";
     this.positions.forEach((position) =>
-    /*this.ctx.fillStyle = white,*/
     this.ctx.fillRect(position.x, position.y, this.size, this.size)
     );
   }
 
+  
   /*checkScreen() {
 
   }

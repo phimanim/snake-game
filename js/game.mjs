@@ -7,8 +7,6 @@ class Game {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
     this.tile = 10;
-    this.rows = this.canvas.height / this.tile;
-    this.column = this.canvas.width / this.tile;
     this.snake;
     this.treat;
     this.isGameOver = false;
@@ -25,6 +23,7 @@ startLoop(){
         this.drawCanvas();
         this.snake.draw();
         this.treat.draw();
+        this.snake.update();
         //this.treat.randomLocation();
         // problem : assign a new location really quick
         
