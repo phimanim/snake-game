@@ -42,7 +42,7 @@ class Snake {
 
   update(){
     this.x = this.x + this.size;
-    this.y = this.y + this.size;
+    //this.y = this.y + this.size;
   }
 
   draw() {
