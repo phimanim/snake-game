@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+}
+
+#play {
+    color: white;
+    background-color: black;
+    margin: 10px;
+}
+
+#game-board {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

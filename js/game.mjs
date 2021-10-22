@@ -10,6 +10,7 @@ class Game {
     this.snake;
     this.treat;
     this.invervalId = null;
+    //this.speed = 100;
     }
 
 
@@ -22,14 +23,16 @@ startLoop() {
       this.snake.draw();
       this.snake.drawFood();
       this.snake.gameOver();
-      //this.snake.generateFood();
       this.snake.eatFood();
       this.snake.updatePositions();
       if (this.snake.isGameOver) {
         clearInterval(this.invervalId);
       }
-    }, 100);
-  }
+    }, 100); // i need to find a way to make a button "speed"
+    //maybe replace 100 with this.speed ????
+    
+}
+
 
 
 clearCanvas(){
