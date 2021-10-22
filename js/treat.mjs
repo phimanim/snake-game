@@ -1,14 +1,14 @@
-"use strict";
+/*"use strict";
 
 
 class Treat {
   constructor(canvas){
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
-    this.x;
-    this.y;
+    this.x = 40;
+    this.y = 70;
   }
-  randomLocation() {
+  /*randomLocation() {
     this.x = Math.floor(Math.random() * this.canvas.width);
     this.y = Math.floor(Math.random() * this.canvas.height);
   }
@@ -22,4 +22,4 @@ class Treat {
 
 }
 
-export default Treat;
+export default Treat;*/

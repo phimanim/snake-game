@@ -1,6 +1,6 @@
 "use strict";
 import Snake from "./snake.mjs";
-import Treat from "./treat.mjs";
+//import Treat from "./treat.mjs";
 
 class Game {
     constructor(canvas){
@@ -15,17 +15,17 @@ class Game {
 
 startLoop() {
     this.snake = new Snake(this.canvas);
-    this.treat = new Treat(this.canvas);
-
 
     this.invervalId = setInterval(() => {
       this.clearCanvas();
       this.drawCanvas();
       this.snake.draw();
-      this.treat.draw();
-      this.snake.checkScreen();
+      this.snake.drawFood();
+      this.snake.gameOver();
+      //this.snake.generateFood();
+      this.snake.eatFood();
       this.snake.updatePositions();
-      if (this.isGameOver) {
+      if (this.snake.isGameOver) {
         clearInterval(this.invervalId);
       }
     }, 100);
