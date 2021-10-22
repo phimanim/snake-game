@@ -40,7 +40,7 @@ class Snake {
             x: this.x,
             y: this.y,
           };
-      case "ArrowUp":
+      case "ArrowUp": 
         this.x = this.x;
         this.y = this.y - this.size;
           return {
@@ -88,8 +88,8 @@ class Snake {
 
 
   generateFood() {
-  let x = Math.floor(Math.random() * 50) * 10;
-  let y = Math.floor(Math.random() * 50) * 10;
+  let x = Math.floor(Math.random() * 40) * 10;
+  let y = Math.floor(Math.random() * 40) * 10;
 
   this.food = { x, y };
 }
