@@ -116,13 +116,16 @@ drawFood(){
   this.ctx.fillRect(this.food.x, this.food.y, this.size, this.size);
 }
 
+
 eatFood(){
   const addScore = document.getElementById("score")
+  let beat = new Audio('./sound/chew.wav')
   if (this.positions[this.positions.length - 1].x == this.food.x && this.positions[this.positions.length - 1].y == this.food.y){
     this.generateFood();
     this.addPart();
     this.score ++;
     addScore.innerHTML = "Score: " + this.score;
+    beat.play();
   }
 }
 
