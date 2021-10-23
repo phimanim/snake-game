@@ -27,6 +27,7 @@ startLoop() {
       this.snake.updatePositions();
       if (this.snake.isGameOver) {
         clearInterval(this.invervalId);
+        this.onGameOver();
       }
     }, this.speed); // i need to find a way to make a button "speed"
     //maybe replace 100 with this.speed ????
@@ -34,8 +35,6 @@ startLoop() {
     
 
 }
-
-
 
 clearCanvas(){
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -49,16 +48,9 @@ drawCanvas(){
 
 }
 
-/*clearCanvas(){
-
+gameOverCallback(callback) {
+  this.onGameOver = callback;
 }
-
-checkAllCollisions(){
- this.snake.checkScreen();
-
-}
-
-*/
 
 }
 

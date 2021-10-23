@@ -81,12 +81,27 @@ class Snake {
     );
   }
 
-  gameOver() {
-    if (this.positions[0].x >= this.canvas.width || this.positions[0].x < 0 || this.positions[0].y < 0 || this.positions[0].y >= this.canvas.height ) {
-      return this.isGameOver = true;   
+  gameOver(){
+    this.checkBorderCollision();
+    this.checkTailCollision();
+  }
+  
+  checkBorderCollision(){
+    if (this.positions[this.positions.length - 1].x >= this.canvas.width 
+      || this.positions[this.positions.length - 1].x < 0 
+      || this.positions[this.positions.length - 1].y < 0 
+      || this.positions[this.positions.length - 1].y >= this.canvas.height ) {
+      return this.isGameOver = true;
     }
   }
 
+  checkTailCollision(){
+    for (let i = 1; i < this.positions.length; i++) {
+      if (this.positions[0].x == this.positions[i].x && this.positions[0].y == this.positions[i].y) {
+        return this.isGameOver = true;
+      }
+    }
+  }
 
   generateFood() {
   let x = Math.floor(Math.random() * 40) * 10;
@@ -112,10 +127,10 @@ eatFood(){
 }
 
 addPart(){
-  let tail = this.positions[this.positions.length - 1];
+  let newPart = this.positions.slice(-1);
 
-  let x = tail.x;
-  let y = tail.y;
+  let x = newPart.x;
+  let y = newPart.y;
   
   this.positions.push({x, y});
 }
