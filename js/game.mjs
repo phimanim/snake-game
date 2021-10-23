@@ -13,9 +13,27 @@ class Game {
     this.speed = 100;
     }
 
+  setSpeed(){
+    const chooseSpeed = document.getElementsByName("spd");
+      for(let i = 0; i < chooseSpeed.length; i++){
+        if (chooseSpeed[0].checked){
+          this.speed = chooseSpeed[0].value
+        }
+        else if (chooseSpeed[1].checked){
+          this.speed = chooseSpeed[1].value
+        }
+        else if (chooseSpeed[2].checked){
+          this.speed = chooseSpeed[2].value
+        }
+        else if (chooseSpeed[3].checked){
+          this.speed = chooseSpeed[3].value
+        }
+      }
+  }
 
 startLoop() {
     this.snake = new Snake(this.canvas);
+    this.setSpeed();
 
     this.invervalId = setInterval(() => {
       this.clearCanvas();
@@ -29,11 +47,7 @@ startLoop() {
         clearInterval(this.invervalId);
         this.onGameOver();
       }
-    }, this.speed); // i need to find a way to make a button "speed"
-    //maybe replace 100 with this.speed ????
-    // I could make a three options button with three this.speed slow normal fast
-    
-
+    }, this.speed);
 }
 
 clearCanvas(){

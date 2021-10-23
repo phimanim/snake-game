@@ -10,7 +10,37 @@
     <title>Snake Game</title>
 </head>
 <body>
-    <main class="container"></main>
+    <section id="splash-screen">
+        <div class="center">
+        <h1>Snake</h1>
+        <button id="play" class="button">Play</button>
+
+        <p class="speed-toggle">Speed:
+          <input id="speed1" type="radio" name="spd" value="150"/>
+          <label for="speed1">Slow</label>
+          <input id="speed2" type="radio" name="spd" value="100" checked/>
+          <label for="speed2">Normal</label>
+          <input id="speed3" type="radio" name="spd" value="50"/>
+          <label for="speed3">Fast</label>
+          <input id="speed4" type="radio" name="spd" value="20"/>
+          <label for="speed4">Impossible</label>
+        </p>
+        </div>
+    </section>
+
+    <section id="game-board">
+        <div class="center">
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <div id="score">Score: 0</div>
+        </div>
+    </section>
+
+    <section id="game-over">
+        <div class="center">
+          <h1>Game Over</h1>
+          <button id="restart" class="button">Restart</button>
+        </div>
+    </section>
 
     <script type="module"> import "./js/index.mjs"; </script>
 </body>

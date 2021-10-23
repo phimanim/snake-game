@@ -1,20 +1,26 @@
+@font-face {
+    font-family: RetroGaming;
+    src: url('Retro-Gaming.ttf'), url('Retro-Gaming.ttf') format('ttf');
+  }
+
 body {
     background-color: black;
+    font-family: RetroGaming;
 }
 
-#play {
+.button {
     color: white;
     background-color: black;
     margin: 10px;
-    font-size: 15px; 
+    font-size: 25px;
+    border: none;
+    font-family: RetroGaming;
 }
 
-#restart {
-    color: white;
-    background-color: black;
-    margin: 10px;
-    font-size: 15px; 
+button[class=button]:hover{
+    text-decoration:underline;
 }
+
 
 #game-board{
     display: flex;
@@ -30,6 +36,10 @@ body {
 h1{
     color: white;
     text-align: center;
+}
+
+.speed-toggle {
+    color: white;
 }
 
 .game-over{
@@ -50,8 +60,26 @@ h1{
 
 }
 
-.splash-screen{
+#splash-screen{
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+#game-over{
+    display: flex;
+}
+
+input{
+    display: none;
+}
+label {
+    cursor: pointer; 
+
+}
+input:checked + label{
+    text-decoration: underline;
+}
+label {
+    margin: 10px;
 }
