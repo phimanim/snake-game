@@ -10,7 +10,7 @@ class Game {
     this.snake;
     this.treat;
     this.invervalId = null;
-    //this.speed = 100;
+    this.speed = 100;
     }
 
 
@@ -28,9 +28,11 @@ startLoop() {
       if (this.snake.isGameOver) {
         clearInterval(this.invervalId);
       }
-    }, 100); // i need to find a way to make a button "speed"
+    }, this.speed); // i need to find a way to make a button "speed"
     //maybe replace 100 with this.speed ????
+    // I could make a three options button with three this.speed slow normal fast
     
+
 }
 
 
