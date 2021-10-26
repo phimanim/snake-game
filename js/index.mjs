@@ -64,5 +64,8 @@ function buildGameoverScreen(){
   showScreen(2)
   const restartButton = document.getElementById("restart");
   restartButton.addEventListener("click", buildPlayingScreen);
+
+  const reloadButton = document.getElementById("reload");
+  reloadButton.addEventListener("click", buildSplashScreen);
 }
 
